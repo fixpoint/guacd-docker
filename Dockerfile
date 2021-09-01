@@ -65,7 +65,7 @@ FROM debian:buster-slim as runtime
 
 ARG GUACD_VERSION
 LABEL org.opencontainers.image.url https://github.com/orgs/fixpoint/packages/container/package/guacd
-LABEL org.opencontainers.image.source https://github.com/fixpoint/guacd-builder
+LABEL org.opencontainers.image.source https://github.com/fixpoint/docker-guacd
 LABEL org.opencontainers.image.version $GUACD_VERSION
 LABEL org.opencontainers.image.vendor Fixpoint, Inc.
 
