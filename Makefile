@@ -9,8 +9,8 @@ help: ## Show this help
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 	    | awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %s\n", $$1, $$2}'
 
-.PHONY: image
-image:	## Build multi platform docker image (dry)
+.PHONY: image-dry
+image-dry:	## Build multi platform docker image (dry)
 	@docker buildx build \
 		${ARGS} \
 		--platform linux/amd64,linux/arm64,linux/arm \
@@ -22,6 +22,6 @@ image:	## Build multi platform docker image (dry)
 		-f Dockerfile \
 		..
 
-.PHONY: image-push
-image-push:	## Build multi platform docker image (push)
-	@make ARGS="--push --cache-to=${IMAGE}/cache" image
+.PHONY: image
+image:	## Build multi platform docker image (push)
+	@make ARGS="--push --cache-to=${IMAGE}/cache" image-dry
