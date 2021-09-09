@@ -7,8 +7,9 @@ RUN echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sou
 
 # Install guacd build dependencies
 # https://github.com/apache/guacamole-server/blob/1.3.0/Dockerfile#L54
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,sharing=locked,target=/var/lib/apt \
+ARG TARGETPLATFORM
+RUN --mount=type=cache,id=${TARGETPLATFORM}/var/cache/apt,target=/var/cache/apt,sharing=private \
+    --mount=type=cache,id=${TARGETPLATFORM}/var/lib/apt,target=/var/lib/apt,sharing=private \
     apt-get update \
  && apt-get install -y --no-install-recommends -t buster-backports \
       autoconf            \
@@ -31,8 +32,8 @@ RUN --mount=type=cache,target=/var/cache/apt \
       make
 
 # Install packages to download guacamole-server
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,sharing=locked,target=/var/lib/apt \
+RUN --mount=type=cache,id=${TARGETPLATFORM}/var/cache/apt,target=/var/cache/apt,sharing=private \
+    --mount=type=cache,id=${TARGETPLATFORM}/var/lib/apt,target=/var/lib/apt,sharing=private \
     apt-get update \
  && apt-get install -y --no-install-recommends -t buster-backports \
       ca-certificates \
@@ -83,8 +84,9 @@ COPY --from=guacd-builder /usr/local/guacamole /usr/local/guacamole
 # Install runtime requirements
 # https://github.com/apache/guacamole-server/blob/1.3.0/Dockerfile#L128
 # https://github.com/apache/guacamole-server/blob/1.3.0/Dockerfile#L143
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,sharing=locked,target=/var/lib/apt \
+ARG TARGETPLATFORM
+RUN --mount=type=cache,id=${TARGETPLATFORM}/var/cache/apt,target=/var/cache/apt,sharing=private \
+    --mount=type=cache,id=${TARGETPLATFORM}/var/lib/apt,target=/var/lib/apt,sharing=private \
     apt-get update \
  && apt-get install -y --no-install-recommends -t buster-backports \
       netcat-openbsd \
