@@ -16,7 +16,6 @@ image:	## Build multi platform docker image (dry)
 		--platform linux/amd64,linux/arm64,linux/arm \
 		--cache-from=${IMAGE}/cache \
 		--cache-from=${IMAGE} \
-		--cache-to=${IMAGE}/cache \
 		--build-arg GUACD_VERSION=${GUACD_VERSION} \
 		-t ${IMAGE}:${GUACD_VERSION} \
 		-t ${IMAGE}:latest \
@@ -25,4 +24,4 @@ image:	## Build multi platform docker image (dry)
 
 .PHONY: image-push
 image-push:	## Build multi platform docker image (push)
-	@make ARGS=--push image
+	@make ARGS="--push --cache-to=${IMAGE}/cache" image
