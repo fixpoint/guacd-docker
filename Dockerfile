@@ -119,4 +119,5 @@ USER guacd
 # Expose the default listener port
 EXPOSE 4822
 
-CMD /usr/local/guacamole/sbin/guacd -b 0.0.0.0 -L $GUACD_LOG_LEVEL -f
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
