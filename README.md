@@ -1,6 +1,6 @@
-# docker-guacd
+# guacd-docker
 
-[![Build](https://github.com/fixpoint/docker-guacd/actions/workflows/build.yml/badge.svg)](https://github.com/fixpoint/docker-guacd/actions/workflows/build.yml)
+[![Build](https://github.com/fixpoint/guacd-docker/actions/workflows/build.yml/badge.svg)](https://github.com/fixpoint/guacd-docker/actions/workflows/build.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Docker repository](https://img.shields.io/badge/docker-ghcr.io/fixpoint/guacd-orange.svg?logo=docker&logoColor=white)](https://github.com/orgs/fixpoint/packages/container/package/guacd)
 
