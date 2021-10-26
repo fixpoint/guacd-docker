@@ -14,6 +14,14 @@ The docker image supports the followings:
 
 [apache/guacamole-server]: https://github.com/apache/guacamole-server
 
+Additionally, this docker image removed the following fonts that in original image
+
+- `fonts-liberation`
+- `fonts-dejavu`
+- `xfonts-terminus`
+
+And added `fonts-ipafont-gothic` instead to render Japanese characters.
+
 ## Usage
 
 Use `ghcr.io/fixpoint/guacd` like
