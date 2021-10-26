@@ -30,10 +30,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build docker images (dry)
-        run: make image-dry
+        run: make image-release-dry
         if: github.event_name != 'push'
       - name: Build docker images (push)
-        run: make image
+        run: make image-release
         if: github.event_name == 'push'
       - uses: homoluctus/slatify@v2.0.0
         if: failure()
