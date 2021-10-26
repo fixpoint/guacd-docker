@@ -92,9 +92,7 @@ RUN --mount=type=cache,id=${TARGETPLATFORM}/var/cache/apt,target=/var/cache/apt,
       netcat-openbsd \
       ca-certificates \
       ghostscript \
-      fonts-liberation \
-      fonts-dejavu \
-      xfonts-terminus \
+      fonts-ipafont-gothic \
  && apt-get install -y --no-install-recommends -t buster-backports \
       $(cat /usr/local/guacamole/DEPENDENCIES) \
  && rm -rf /var/lib/apt/lists/*
