@@ -9,8 +9,8 @@ This repository is for building `guacd` docker image of [apache/guacamole-server
 The docker image supports the followings:
 
 - `linux/amd64`
-- `linux/arm64`
-- `linux/arm`
+- `linux/arm64/v8`
+- `linux/arm/v7`
 
 [apache/guacamole-server]: https://github.com/apache/guacamole-server
 

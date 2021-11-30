@@ -20,11 +20,10 @@ image-release:	## Build multi platform docker image
 		${IMAGE} ${GUACD_VERSION} \
 		--push \
   		--cache-to=type=registry,ref=${IMAGE}/cache,mode=max \
-		--platform linux/amd64,linux/arm64,linux/arm
+		--platform linux/amd64,linux/arm/v7,linux/arm64/v8
 
 .PHONY: image-release-dry
 image-release-dry:	## Build multi platform docker image (dry)
 	scripts/build.sh \
 		${IMAGE} ${GUACD_VERSION} \
-		--platform linux/amd64,linux/arm64,linux/arm
-
+		--platform linux/amd64,linux/arm/v7,linux/arm64/v8
